@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    static class Calculadora
+    public static class Calculadora
     {
         private static string ValidarOperador(char operador)
         {
@@ -19,10 +19,11 @@ namespace Entidades
             }
             return char.ToString(operador);
         }
+        
 
-        public static double Operar(double num1, double num2, string operador)
+        public static double Operar(Numero num1, Numero num2, string operador)
         {
-            double resultado = 0;//sino le asigno valor me tira error en el ultimo return;
+            double resultado = 10;//sino le asigno valor me tira error en el ultimo return;
             char.TryParse(operador, out char a);
             string b = ValidarOperador(a);
             switch (b)
@@ -34,14 +35,7 @@ namespace Entidades
                     resultado = num1 - num2;
                     break;
                 case "/":
-                    if (num2 ==0)
-                    {
-                        resultado = double.MinValue;
-                    }
-                    else
-                    {
                     resultado = num1 / num2;
-                    }
                     break;
                 case "*":
                     resultado = num1 * num2;
@@ -64,6 +58,7 @@ namespace Entidades
             return 0;
         }
 
+        //CONSTRUCTORES
         public Numero()
         {
             this.numero = 0;
@@ -77,9 +72,35 @@ namespace Entidades
 
         public Numero(string strNumero)
         {
-            this.numero = float.Parse(strNumero);
+            double.TryParse(strNumero,out this.numero);
         }
 
+        //SOBRECARGAS
+        public static double operator +(Numero num1, Numero num2)
+        {
+            return num1.numero + num2.numero;
+        }
+        public static double operator -(Numero num1, Numero num2)
+        {
+            return num1.numero - num2.numero;
+        }
+        public static double operator *(Numero num1, Numero num2)
+        {
+            return num1.numero * num2.numero;
+        }
+        public static double operator /(Numero num1, Numero num2)
+        {
+            if (num2.numero == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return num1 / num2;
+            }
+        }
+
+        //PROPIEDAD
         public string SetNumero
         {
             set
@@ -88,6 +109,7 @@ namespace Entidades
             }
         }
 
+        //METODOS
         private bool EsBinario(string binario)
         {
             if(object.Equals(binario, "0") || object.Equals(binario,"1"))
