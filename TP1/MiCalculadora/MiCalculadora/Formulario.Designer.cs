@@ -104,13 +104,14 @@
             // 
             // lblResultado
             // 
+            this.lblResultado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(33)))), ((int)(((byte)(69)))));
             this.lblResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultado.ForeColor = System.Drawing.Color.White;
             this.lblResultado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lblResultado.Location = new System.Drawing.Point(188, 20);
             this.lblResultado.Name = "lblResultado";
             this.lblResultado.Size = new System.Drawing.Size(272, 44);
             this.lblResultado.TabIndex = 6;
-            this.lblResultado.Text = "RES";
             this.lblResultado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtNumero1
@@ -131,6 +132,7 @@
             // 
             // FormCalculadora
             // 
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(33)))), ((int)(((byte)(69)))));
             this.ClientSize = new System.Drawing.Size(472, 285);
             this.Controls.Add(this.txtNumero2);
             this.Controls.Add(this.txtNumero1);
@@ -141,6 +143,7 @@
             this.Controls.Add(this.btnConvertirADecimal);
             this.Controls.Add(this.btnConvertirABinario);
             this.Controls.Add(this.btnCerrar);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
