@@ -37,6 +37,19 @@ namespace MiCalculadora
         }
 
         /// <summary>
+        /// Limpia todos los valores de la calculadora
+        /// </summary>
+        private void Limpiar()
+        {
+            this.txtNumero1.Text = "";
+            this.txtNumero2.Text = "";
+            this.lblResultado.Text = "";
+            this.cmbOperador.Text = "";
+            btnConvertirABinario.Enabled = true;
+            btnConvertirADecimal.Enabled = true;
+        }
+
+        /// <summary>
         /// Cierra la aplicacion
         /// </summary>
         /// <param name="sender"></param>
@@ -60,19 +73,15 @@ namespace MiCalculadora
             btnConvertirABinario.Enabled = true;
             
         }
+
         /// <summary>
-        /// Limpia todos los valores de la calculadora
+        /// Llama a la funcion Limpiar de la calculadora
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            this.txtNumero1.Text = "";
-            this.txtNumero2.Text = "";
-            this.lblResultado.Text = "";
-            this.cmbOperador.Text = "";
-            btnConvertirABinario.Enabled = true;
-            btnConvertirADecimal.Enabled = true;
+            Limpiar();
         }
 
         /// <summary>
@@ -89,6 +98,7 @@ namespace MiCalculadora
                                                   //binario como decimal, y lo vuelve a pasar a binario
                                                   
         }
+
         /// <summary>
         /// Convierte el resultado binario a decimal
         /// </summary>

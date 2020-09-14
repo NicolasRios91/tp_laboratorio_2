@@ -31,7 +31,7 @@ namespace Entidades
         /// <returns>El resultado de la operacion</returns>
         public static double Operar(Numero num1, Numero num2, string operador)
         {
-            double resultado = 0;//sino le asigno valor me tira error en el ultimo return;
+            double resultado = 0;//si no le asigno valor me tira error en el ultimo return;
             char.TryParse(operador, out char a);
             string b = ValidarOperador(a);
             switch (b)

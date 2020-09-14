@@ -33,7 +33,7 @@ namespace Entidades
         /// <returns>Un double con el valor interpretado de la cadena, caso contrario 0</returns>
         private double ValidarNumero(string strNumero)
         {
-            if (double.TryParse(strNumero, out double valor))
+            if (double.TryParse(strNumero, out double valor))//verifica que la cadena sea numerica
             {
                 return valor;
             }
@@ -48,6 +48,7 @@ namespace Entidades
         {
             this.numero = 0;
         }
+
         /// <summary>
         /// Asigna un valor por parametro al atributo numero
         /// </summary>
@@ -136,14 +137,13 @@ namespace Entidades
                 if (p != '0' && p != '1')
                 {
                     return false;
-
                 }
             }
             return true;
         }
 
         /// <summary>
-        /// Convierte una cadena a decimal en formato string
+        /// Convierte un valor binario a decimal
         /// </summary>
         /// <param name="binario">Cadena a convertir</param>
         /// <returns>El numero decimal convertido o un mensaje de error</returns>
@@ -176,12 +176,12 @@ namespace Entidades
             int numeroSinDecimales = (int)numero;
             if (numeroSinDecimales == 0)
             {
-                valorBinario = "0";
+                valorBinario = "0";//Se le asigna 0 si el numero a convertir tambien es 0
                 return valorBinario ;
             }
             else
             {
-                if (numero < 0)
+                if (numero < 0)//como no trabajamos con negativos devuelve error
                 {
                     return "Valor Invalido";
                 }
@@ -191,7 +191,7 @@ namespace Entidades
                     {
                         int resto = numeroSinDecimales % 2;//resto de la division
                         valorBinario = resto.ToString() + valorBinario;//primero el ultimo resto,sino queda al reves
-                        numeroSinDecimales = numeroSinDecimales / 2;//nuevo valor a dividir
+                        numeroSinDecimales/= 2;//nuevo valor a dividir
                     } while (numeroSinDecimales > 0);
                 }
 
@@ -206,7 +206,7 @@ namespace Entidades
         /// o un mensaje de error</returns>
         public static string DecimalBinario(string numero)
             {
-                if (double.TryParse(numero, out double valor))
+                if (double.TryParse(numero, out double valor))//si la cadena son numeros, se llama al metodo para convertir
                 {
                     return (DecimalBinario(valor));
                 }
