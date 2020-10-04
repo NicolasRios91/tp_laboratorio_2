@@ -36,7 +36,7 @@ namespace Entidades
         /// Constructor base
         /// </summary>
         /// <param name="chasis">valor a asignar al atributo "chasis"</param>
-        /// <param name="marca">valor a asignar al atributo <see cref="Vehiculo.EMarca"/></param>
+        /// <param name="marca">valor a asignar al atributo "marca"</param>
         /// <param name="color">valor a asignar al atributo "color" </param>
         public Vehiculo(string chasis,EMarca marca,ConsoleColor color)
         {
@@ -56,7 +56,9 @@ namespace Entidades
         /// <returns>Listado del vehiculo</returns>
         public virtual string Mostrar()
         {
-            return this.ToString();
+            //string a = (string)this;
+
+            return (string)this; //utilizo el casteo para devolver el stringbuilder con los datos
         }
 
 

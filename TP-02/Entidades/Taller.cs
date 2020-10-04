@@ -34,7 +34,7 @@ namespace Entidades
         /// <summary>
         /// Inicializa una instancia de Taller, asignandole el espacio disponible
         /// </summary>
-        /// <param name="espacioDisponible">Valor a asignar</param>
+        /// <param name="espacioDisponible">Valor a asignar al atributo "espacioDisponible"</param>
         public Taller(int espacioDisponible)
             :this()
         {
@@ -60,7 +60,7 @@ namespace Entidades
         /// SOLO del tipo requerido
         /// </summary>
         /// <param name="taller">Elemento a exponer</param>
-        /// <param name="ETipo">Tipos de ítems de la lista a mostrar</param>
+        /// <param name="tipo">Tipos de ítems de la lista a mostrar</param>
         /// <returns>Listado del tipo de vehiculos requerido</returns>
         public static string Listar(Taller taller, ETipo tipo)
         {

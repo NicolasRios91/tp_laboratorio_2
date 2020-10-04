@@ -19,7 +19,7 @@ namespace Entidades
         {
         }
         /// <summary>
-        /// Devuelve el tamaño de las camionetas (Grande)
+        /// Devuelve el tamaño de las camionetas (Son GRANDES)
         /// </summary>
         protected override ETamanio Tamanio
         {
@@ -33,13 +33,13 @@ namespace Entidades
         /// Muestra los datos de la camioneta
         /// </summary>
         /// <returns>Listado del vehiculo <see cref="Suv"/></returns>
-        public sealed override string Mostrar()
+        public override sealed string Mostrar()
         {
-            string v = (string)this;//me devuelve los datos de la clase base, con el formato del stringBuilder
+            
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("SUV");
-            sb.AppendLine(v);
-            sb.AppendLine(string.Format("TAMAÑO : {0}", this.Tamanio));
+            sb.AppendLine(base.Mostrar());
+            sb.AppendFormat("TAMAÑO : {0}", this.Tamanio);
             sb.AppendLine("");
             sb.AppendLine("---------------------");
 

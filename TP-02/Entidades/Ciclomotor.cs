@@ -11,7 +11,7 @@ namespace Entidades
         /// <summary>
         /// Inicializa una nueva instancia de <see cref="Ciclomotor"/> 
         /// </summary>
-        /// <param name="marca">valor a asignar al atributo <see cref="Vehiculo.EMarca"/></param>
+        /// <param name="marca">valor a asignar al atributo "marca" </param>
         /// <param name="chasis">valor a asignar al atributo "chasis"</param>
         /// <param name="color">valor a asignar al atributo "color"</param>
         public Ciclomotor(EMarca marca, string chasis, ConsoleColor color)
@@ -20,7 +20,7 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Devuelve el tamaño de las motos (chicas)
+        /// Devuelve el tamaño de las motos (Son CHICAS)
         /// </summary>
         protected override ETamanio Tamanio
         {
@@ -37,10 +37,10 @@ namespace Entidades
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
-            string c = (string)this;
+            
             sb.AppendLine("CICLOMOTOR");
-            sb.AppendLine(c);
-            sb.AppendLine(string.Format("TAMAÑO : {0}", this.Tamanio));
+            sb.AppendLine(base.Mostrar());
+            sb.AppendFormat("TAMAÑO : {0}", this.Tamanio);
             sb.AppendLine("");
             sb.AppendLine("---------------------");
 

@@ -30,10 +30,10 @@ namespace Entidades
         /// <summary>
         /// Inicializa una nueva instancia de <see cref="Sedan"/>
         /// </summary>
-        /// <param name="marca">valor a asignar al atributo <see cref="Vehiculo.EMarca"/></param>
+        /// <param name="marca">valor a asignar al atributo "marca"</param>
         /// <param name="chasis">valor a asignar al atributo "chasis"</param>
         /// <param name="color">valor a asignar al atributo "color"</param>
-        /// <param name="tipo">valor a asignar al atributo <see cref="Sedan.ETipo"/></param>
+        /// <param name="tipo">valor a asignar al atributo "tipo"</param>
         public Sedan(EMarca marca,string chasis,ConsoleColor color,ETipo tipo)
             :this(marca,chasis,color)
         {
@@ -41,7 +41,7 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Devuelve el tamaño de los automoviles (medianos)
+        /// Devuelve el tamaño de los automoviles (Son MEDIANOS)
         /// </summary>
         protected override ETamanio Tamanio
         {
@@ -58,12 +58,11 @@ namespace Entidades
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
-            string s = (string)this;
+
             sb.AppendLine("SEDAN");
-            //sb.AppendLine(this);
-            sb.AppendLine(s);
-            sb.AppendLine(string.Format("TAMAÑO : {0}", this.Tamanio));
-            sb.AppendLine("TIPO : " + this.tipo);
+            sb.AppendLine(base.Mostrar());
+            sb.AppendFormat("TAMAÑO : {0}", this.Tamanio);
+            sb.AppendLine("TIPO : " + this.tipo);//con "\n" antes de "TIPO" queda mas prolijo
             sb.AppendLine("");
             sb.AppendLine("---------------------");
 
