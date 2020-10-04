@@ -11,19 +11,34 @@ namespace Entidades
     /// </summary>
     public abstract class Vehiculo
     {
+        /// <summary>
+        /// Enumerado de marcas del vehiculo
+        /// </summary>
         public enum EMarca
         {
             Chevrolet, Ford, Renault, Toyota, BMW, Honda, HarleyDavidson
         }
+
+        /// <summary>
+        /// Enumerado de tamaños del vehiculo
+        /// </summary>
         public enum ETamanio
         {
             Chico, Mediano, Grande
         }
+
+        //ATRIBUTOS
         private EMarca marca;
         private string chasis;
         private ConsoleColor color;
 
-        protected Vehiculo(string chasis,EMarca marca,ConsoleColor color)
+        /// <summary>
+        /// Constructor base
+        /// </summary>
+        /// <param name="chasis">valor a asignar al atributo "chasis"</param>
+        /// <param name="marca">valor a asignar al atributo <see cref="Vehiculo.EMarca"/></param>
+        /// <param name="color">valor a asignar al atributo "color" </param>
+        public Vehiculo(string chasis,EMarca marca,ConsoleColor color)
         {
             this.color = color;
             this.chasis = chasis;
@@ -31,17 +46,24 @@ namespace Entidades
         }
 
         /// <summary>
-        /// ReadOnly: Retornará el tamaño
+        /// Retorna el tamaño del vehiculo
         /// </summary>
         protected abstract ETamanio Tamanio { get;}
 
         /// <summary>
         /// Publica todos los datos del Vehiculo.
         /// </summary>
-        /// <returns></returns>
-        public abstract string Mostrar();
+        /// <returns>Listado del vehiculo</returns>
+        public virtual string Mostrar()
+        {
+            return this.ToString();
+        }
 
 
+        /// <summary>
+        /// Castea los datos de un Vehiculo a una cadena de caracteres
+        /// </summary>
+        /// <param name="p">Vehiculo a exponer</param>
         public static explicit operator string(Vehiculo p)
         {
             StringBuilder sb = new StringBuilder();
@@ -57,9 +79,9 @@ namespace Entidades
         /// <summary>
         /// Dos vehiculos son iguales si comparten el mismo chasis
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">Primer vehiculo a comparar</param>
+        /// <param name="v2">Segundo vehiculo a comparar</param>
+        /// <returns>True si son iguales, false si son distintos</returns>
         public static bool operator ==(Vehiculo v1, Vehiculo v2)
         {
             return (v1.chasis == v2.chasis);
@@ -67,12 +89,12 @@ namespace Entidades
         /// <summary>
         /// Dos vehiculos son distintos si su chasis es distinto
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
-        /// <returns></returns>
+        /// <param name="v1">Primer vehiculo a comparar</param>
+        /// <param name="v2">Segundo vehiculo a comparar</param>
+        /// <returns>True si son distintos, false si son iguales</returns>
         public static bool operator !=(Vehiculo v1, Vehiculo v2)
         {
-            return (v1.chasis == v2.chasis);
+            return (v1.chasis != v2.chasis);
         }
     }
 }

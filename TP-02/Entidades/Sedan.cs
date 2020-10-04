@@ -10,20 +10,30 @@ namespace Entidades
 {
     public class Sedan : Vehiculo
     {
+        /// <summary>
+        /// Enumerado del tipo de automovil segun la cantidad de puertas
+        /// </summary>
         public enum ETipo { CuatroPuertas, CincoPuertas }
         ETipo tipo;
 
         /// <summary>
-        /// Por defecto, TIPO será Monovolumen
+        /// Inicializa una nueva instancia de <see cref="Sedan"/>
         /// </summary>
-        /// <param name="marca"></param>
-        /// <param name="chasis"></param>
-        /// <param name="color"></param>
+        /// <param name="marca">valor a asignar al atributo <see cref="Vehiculo.EMarca"/></param>
+        /// <param name="chasis">valor a asignar al atributo "chasis"</param>
+        /// <param name="color">valor a asignar al atributo "color"</param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color)
             : base(chasis, marca, color)
         {
             
         }
+        /// <summary>
+        /// Inicializa una nueva instancia de <see cref="Sedan"/>
+        /// </summary>
+        /// <param name="marca">valor a asignar al atributo <see cref="Vehiculo.EMarca"/></param>
+        /// <param name="chasis">valor a asignar al atributo "chasis"</param>
+        /// <param name="color">valor a asignar al atributo "color"</param>
+        /// <param name="tipo">valor a asignar al atributo <see cref="Sedan.ETipo"/></param>
         public Sedan(EMarca marca,string chasis,ConsoleColor color,ETipo tipo)
             :this(marca,chasis,color)
         {
@@ -31,7 +41,7 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Los automoviles son medianos
+        /// Devuelve el tamaño de los automoviles (medianos)
         /// </summary>
         protected override ETamanio Tamanio
         {
@@ -41,6 +51,10 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Muestra los datos del automovil
+        /// </summary>
+        /// <returns>Listado del vehiculo <see cref="Sedan"/></returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
