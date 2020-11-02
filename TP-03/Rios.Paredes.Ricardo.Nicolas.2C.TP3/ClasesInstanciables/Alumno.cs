@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using EntidadesAbstractas;
 
@@ -33,14 +34,23 @@ namespace ClasesInstanciables
         {
             StringBuilder cadena = new StringBuilder();
             cadena.AppendLine(base.MostrarDatos());
-            cadena.AppendLine($"Estado de cuenta:  {this.estadoCuenta}");
-            cadena.AppendLine(ParticiparEnClase());
+            cadena.Append("Estado de cuenta: ");
+            if (this.estadoCuenta == EEstadoCuenta.AlDia)
+            {
+                cadena.AppendLine("Cuota al dia");
+            }
+            else
+            {
+                cadena.AppendLine($"{this.estadoCuenta}");
+            }
+            
+            cadena.AppendLine(this.ParticiparEnClase());
             return cadena.ToString();
         }
 
         public override string ToString()
         {
-            return MostrarDatos();
+            return this.MostrarDatos();
         }
 
         public static bool operator ==(Alumno a,Universidad.EClases clase)

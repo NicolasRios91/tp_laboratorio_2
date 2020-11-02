@@ -17,5 +17,11 @@ namespace Excepciones
         {
         }
 
+        public NacionalidadInvalidaException(string message,Exception innerException)
+            :base(message,innerException)
+        {
+
+        }
+
     }
 }

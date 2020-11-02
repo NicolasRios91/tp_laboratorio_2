@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Archivos;
+using Excepciones;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace ClasesInstanciables
 {
@@ -14,10 +18,8 @@ namespace ClasesInstanciables
 
         private Jornada()
         {
-            if(this.alumnos == null)
-            {
-                this.alumnos = new List<Alumno>();
-            }
+
+            this.alumnos = new List<Alumno>();
         }
 
         public Jornada(Universidad.EClases clase, Profesor instructor)
@@ -32,7 +34,7 @@ namespace ClasesInstanciables
         {
             get
             {
-                return this.Alumnos;
+                return this.alumnos;
             }
             set
             {
@@ -61,20 +63,14 @@ namespace ClasesInstanciables
             set
             {
                 this.instructor = value;
+ 
             }
         }
 
         public static Jornada operator +(Jornada j,Alumno a)
         {
-            if (j == a)
+            if (j!=a)
             {
-                foreach (Alumno aux in j.Alumnos)
-                {
-                    if (aux == a)
-                    {
-                        return j;
-                    }    
-                }
                 j.Alumnos.Add(a);
             }
             return j;
@@ -84,9 +80,10 @@ namespace ClasesInstanciables
         {
             foreach(Alumno aux in j.Alumnos)
             {
-                if (a == j.Clase)
+                if (a == aux)
                 {
                     return true;
+                    //throw new AlumnoRepetidoException();
                 }
             }
             return false;
@@ -99,9 +96,43 @@ namespace ClasesInstanciables
         public override string ToString()
         {
             StringBuilder cadena = new StringBuilder();
-            cadena.AppendLine("Jornada:");
-            cadena.AppendLine($"Clase de: {Clase}");
+            cadena.AppendLine($"Clase de: {this.Clase}");
+            cadena.Append($"Por {this.Instructor}");
+            cadena.AppendLine("Alumnos");
+            foreach(Alumno a in this.Alumnos)
+            {
+                cadena.AppendLine(a.ToString());
+            }
             return cadena.ToString();
+        }
+
+        public static string Leer()
+        {
+            try
+            {
+                string textoJornada;
+                Texto texto = new Texto();
+                texto.Leer("Jornada", out textoJornada);
+                return textoJornada;
+            }
+            catch (Exception e)
+            {
+                throw new ArchivosException(e);
+            }
+        }
+
+        public static bool Guardar(Jornada jornada)
+        {
+            try
+            {
+                Texto texto = new Texto();
+                texto.Guardar("Jornada", jornada.ToString());
+            }
+            catch (Exception e)
+            {
+                throw new ArchivosException(e);
+            }
+            return true;
         }
 
     }

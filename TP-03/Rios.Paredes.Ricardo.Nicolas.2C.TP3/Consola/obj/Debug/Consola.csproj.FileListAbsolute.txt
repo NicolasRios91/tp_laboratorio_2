@@ -1,0 +1,16 @@
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\Consola.exe.config
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\Consola.exe
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\Consola.pdb
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\ClasesInstanciables.dll
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\EntidadesAbstractas.dll
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\Excepciones.dll
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\Archivos.dll
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\ClasesInstanciables.pdb
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\EntidadesAbstractas.pdb
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\Excepciones.pdb
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\bin\Debug\Archivos.pdb
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\obj\Debug\Consola.csprojAssemblyReference.cache
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\obj\Debug\Consola.csproj.CoreCompileInputs.cache
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\obj\Debug\Consola.csproj.CopyComplete
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\obj\Debug\Consola.exe
+C:\Users\MARQUIN\Desktop\tp_laboratorio_2\TP-03\Rios.Paredes.Ricardo.Nicolas.2C.TP3\Consola\obj\Debug\Consola.pdb

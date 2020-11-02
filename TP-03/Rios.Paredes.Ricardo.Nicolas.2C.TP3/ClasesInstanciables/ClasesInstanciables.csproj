@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Archivos\Archivos.csproj">
+      <Project>{99053da0-d8db-4c3a-a685-7f3fcff6d741}</Project>
+      <Name>Archivos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entidades\EntidadesAbstractas.csproj">
       <Project>{dc0a2526-b5b5-41b7-bc25-2e33667041ed}</Project>
       <Name>EntidadesAbstractas</Name>

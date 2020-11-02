@@ -22,8 +22,8 @@ namespace EntidadesAbstractas
         protected virtual string MostrarDatos()
         {
             StringBuilder cadena = new StringBuilder();
-            cadena.AppendLine($"Legajo: {this.legajo}");
             cadena.AppendLine(base.ToString());
+            cadena.Append($"Legajo Numero: {this.legajo}");
             return cadena.ToString();
         }
 
@@ -40,7 +40,7 @@ namespace EntidadesAbstractas
 
         public static bool operator ==(Universitario pg1, Universitario pg2)
         {
-            if (pg1.Equals(pg2) && pg1.Dni == pg2.Dni || pg1.legajo == pg2.legajo)
+            if (pg1.Equals(pg2) && (pg1.Dni == pg2.Dni || pg1.legajo == pg2.legajo))
             {
                 return true;
             }

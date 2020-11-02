@@ -27,15 +27,20 @@ namespace ClasesInstanciables
             : base(id, nombre, apellido, dni, nacionalidad)
         {
             this.claseDeldia = new Queue<Universidad.EClases>();
-            _randomClases();
-            Thread.Sleep(200);
-            _randomClases();
+            this._randomClases();
 
         }
 
         private void _randomClases()
         {
-            
+            for(int i =0; i<2;i++)
+            {
+                this.claseDeldia.Enqueue((Universidad.EClases)random.Next(0, 4));
+                Thread.Sleep(200);
+            }
+                
+
+            /*
             //creo un array con todos los valores de EClases
             Array valores = Enum.GetValues(typeof(Universidad.EClases));
 
@@ -43,6 +48,7 @@ namespace ClasesInstanciables
             //variable auxiliar para asignar el valor de la posicion random
             Universidad.EClases aux = (Universidad.EClases)valores.GetValue(numero);
             this.claseDeldia.Enqueue(aux);
+            */
         }
         
         public static bool operator ==(Profesor i,Universidad.EClases clase)
@@ -65,7 +71,7 @@ namespace ClasesInstanciables
         {
             StringBuilder cadena = new StringBuilder();
             cadena.AppendLine(base.MostrarDatos());
-            cadena.AppendLine(ParticiparEnClase());
+            cadena.AppendLine(this.ParticiparEnClase());
             return cadena.ToString();
         }
         protected override string ParticiparEnClase()
@@ -74,7 +80,7 @@ namespace ClasesInstanciables
             cadena.AppendLine("Clases del dia: ");
             foreach (Universidad.EClases aux in this.claseDeldia)
             {
-                cadena.Append($"{aux} ||");
+                cadena.AppendLine($"{aux}");
             }
             return cadena.ToString();
         }

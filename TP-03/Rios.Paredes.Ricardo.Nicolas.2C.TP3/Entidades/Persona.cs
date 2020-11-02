@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Excepciones;
 
 namespace EntidadesAbstractas
 {
@@ -30,7 +31,7 @@ namespace EntidadesAbstractas
             }
             set
             {
-                this.apellido = value;//validar
+                this.apellido = this.ValidarNombreApellido(value);
             }
         }
 
@@ -65,7 +66,7 @@ namespace EntidadesAbstractas
             }
             set
             {
-                this.nombre = value;//validar
+                this.nombre = this.ValidarNombreApellido(value);
             }
         }
 
@@ -102,27 +103,47 @@ namespace EntidadesAbstractas
         public override string ToString()
         {
             StringBuilder cadena = new StringBuilder();
-            cadena.AppendLine($"Nombre: {Nombre}");
-            cadena.AppendLine($"Apellido: {Apellido}");
-            cadena.AppendLine($"Dni: {Dni}");
+            cadena.AppendLine($"Nombre Completo: {Apellido}, {Nombre}");
+            //cadena.AppendLine($"Dni: {Dni}");
             cadena.AppendLine($"Nacionalidad: {Nacionalidad}");
             return cadena.ToString();
         }
 
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
-            if (dato < 99999999 && dato >899999999 && nacionalidad == ENacionalidad.Extranjero)
+            switch (nacionalidad)
+            {
+                case ENacionalidad.Argentino:
+                    if(dato < 1 || dato > 89999999)
+                    {
+                        throw new NacionalidadInvalidaException();
+                    }
+                    break;
+                case ENacionalidad.Extranjero:
+                    {
+                        if(dato < 90000000 || dato > 99999999)
+                        {
+                            throw new NacionalidadInvalidaException();
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return dato;
+            /*
+            if (dato < 99999999 && dato >89999999 && nacionalidad == ENacionalidad.Extranjero)
             {
                 return dato;
             }
-            else if (dato >0 && dato < 900000000 && nacionalidad == ENacionalidad.Argentino)
+            else if (dato >0 && dato < 90000000 && nacionalidad == ENacionalidad.Argentino)
             {
                 return dato;
             }
             else
             {
-                throw new Exception("Nacionalidad Invalida");
-            }            
+                throw new NacionalidadInvalidaException ("Nacionalidad Invalida");
+            }  */
         }
         private int ValidarDni(ENacionalidad nacionalidad,string dato)
         {
@@ -133,11 +154,22 @@ namespace EntidadesAbstractas
             }
             else
             {
-                throw new Exception("Dni Invalido");
+                throw new DniInvalidoException("Dni Invalido");
             }
         }
         private string ValidarNombreApellido(string dato)
         {
+            foreach(char c in dato)
+            {
+                if(char.IsLetter(c))
+                {
+                    continue;
+                }
+                else
+                {
+                    return "";
+                }
+            }
             return dato;
         }
     }

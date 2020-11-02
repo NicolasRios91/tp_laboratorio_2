@@ -1,0 +1,22 @@
+Jornada
+Clase de: Laboratorio
+Por Nombre Completo: Lopez, Juan
+Nacionalidad: Argentino
+
+Legajo Numero: 1
+
+Clases del dia: 
+Laboratorio
+Legislacion
+
+
+Alumnos
+Nombre Completo: Suarez, Joaquin
+Nacionalidad: Extranjero
+
+Legajo Numero: 7
+
+Estado de cuenta: Cuota al dia
+Toma clase de: Laboratorio
+
+

@@ -1,15 +1,19 @@
-﻿using Excepciones;
+﻿using Archivos;
+using Excepciones;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ClasesInstanciables
 {
     public class Universidad
     {
-        public enum EClases {Programacion,Laboratorio,Legislacion,SPD};
+        public enum EClases { Programacion, Laboratorio, Legislacion, SPD };
 
         private List<Alumno> alumnos;
         private List<Jornada> jornada;
@@ -62,14 +66,14 @@ namespace ClasesInstanciables
                 this.profesores = value;
             }
         }
-          
+
         public static bool operator ==(Universidad g, Alumno a)
         {
-            foreach(Alumno aux in g.Alumnos)
+            foreach (Alumno aux in g.Alumnos)
             {
                 if (aux == a)
                 {
-                    return true;
+                    throw new AlumnoRepetidoException();
                 }
             }
             return false;
@@ -80,11 +84,11 @@ namespace ClasesInstanciables
             return !(g == a);
         }
 
-        public static bool operator == (Universidad g,Profesor i)
+        public static bool operator ==(Universidad g, Profesor i)
         {
-            foreach(Jornada aux in g.jornada)
+            foreach (Profesor aux in g.Instructores)
             {
-                if (i == aux.Clase)
+                if (i == aux)
                 {
                     return true;
                 }
@@ -99,7 +103,7 @@ namespace ClasesInstanciables
 
         public static Profesor operator ==(Universidad u, EClases clase)
         {
-            foreach(Profesor p in u.Instructores)
+            foreach (Profesor p in u.Instructores)
             {
                 if (p == clase)
                 {
@@ -111,9 +115,9 @@ namespace ClasesInstanciables
 
         public static Profesor operator !=(Universidad u, EClases clase)
         {
-            foreach(Profesor p in u.Instructores)
+            foreach (Profesor p in u.Instructores)
             {
-                if(p!=clase)
+                if (p != clase)
                 {
                     return p;
                 }
@@ -121,41 +125,89 @@ namespace ClasesInstanciables
             throw new SinProfesorException("Todos los profesores dan esa clase");
         }
 
-        public static Universidad operator +(Universidad u,Alumno a)
+        public static Universidad operator +(Universidad u, Alumno a)
         {
-            foreach(Alumno aux in u.Alumnos)
+            if (u!=a)
             {
-                if (aux == a)
-                {
-                    throw new AlumnoRepetidoException();
-                }
+                u.Alumnos.Add(a);
             }
-            u.Alumnos.Add(a);
             return u;
         }
-        public static Universidad operator +(Universidad u,Profesor i)
+
+        public static Universidad operator +(Universidad u, Profesor i)
         {
-            foreach (Profesor aux in u.Instructores)
+            if (u!=i)
             {
-                if (aux == i)
-                {
-                    return u;
-                }
+                u.Instructores.Add(i);
             }
-            u.Instructores.Add(i);
             return u;
         }
 
         public static Universidad operator +(Universidad g, EClases clase)
         {
-            Profesor p = (g == clase);
-            Jornada nuevaJornada = new Jornada(clase,p);
-            foreach(Alumno aux in g.Alumnos)
+            //Profesor p = (g == clase);
+            Jornada nuevaJornada = new Jornada(clase, g == clase);
+            foreach (Alumno aux in g.Alumnos)
             {
-                nuevaJornada += aux;
+                if (aux == clase)
+                {
+                    nuevaJornada += aux;
+                }
+                
             }
             g.Jornada.Add(nuevaJornada);
             return g;
         }
+
+        private static string MostrarDatos(Universidad uni)
+        {
+            StringBuilder cadena = new StringBuilder();
+            cadena.AppendLine("Jornada");
+            foreach (Jornada j in uni.Jornada)
+            {
+                cadena.Append(j.ToString());
+                cadena.AppendLine("<---------------------------------------->");
+                //cadena.AppendLine("");
+            }
+            return cadena.ToString();
+        }
+
+        public override string ToString()
+        {
+            return MostrarDatos(this);
+        }
+
+        public static bool Guardar (Universidad uni)
+        {
+            try
+            {
+                Xml<Universidad>xml = new Xml<Universidad>();
+                xml.Guardar("Universidad", uni);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw new ArchivosException(e);
+            }
+        }
+
+        public Universidad Leer ()
+        {
+            try
+            {
+                Universidad uni = null;
+                Xml<Universidad> xml = new Xml<Universidad>();
+                xml.Leer("Universidad",out uni);
+                return uni;
+            }
+            catch (Exception e)
+            {
+                throw new ArchivosException(e);
+            }
+        }
+            
+            
+
+
     }
 }
