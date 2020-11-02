@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace EntidadesAbstractas
 {
+    /// <summary>
+    /// Clase abstracta de Universitarios
+    /// </summary>
     public abstract class Universitario : Persona
     {
         #region Atributos y Constructores

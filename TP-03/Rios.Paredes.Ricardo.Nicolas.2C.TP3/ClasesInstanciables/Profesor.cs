@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace ClasesInstanciables
 {
-
+    /// <summary>
+    /// Clase sellada para declarar profesores universitarios
+    /// </summary>
     public sealed class Profesor : Universitario
     {
 
@@ -49,7 +51,7 @@ namespace ClasesInstanciables
             : base(id, nombre, apellido, dni, nacionalidad)
         {
             this.claseDeldia = new Queue<Universidad.EClases>();
-            this._randomClases();
+            this.randomClases();
 
         }
         #endregion
@@ -59,12 +61,12 @@ namespace ClasesInstanciables
         /// <summary>
         /// Genera una clase aleatoria a partir del atributo random
         /// </summary>
-        private void _randomClases()
+        private void randomClases()
         {
             for(int i =0; i<2;i++)
             {
                 this.claseDeldia.Enqueue((Universidad.EClases)random.Next(0, 4));
-                Thread.Sleep(250);
+                Thread.Sleep(350);
             }
 
         }
@@ -99,6 +101,21 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
+        /// Genera un StringBuilder con las clases que da el profesor
+        /// </summary>
+        /// <returns>Cadena de caracteres con las clases que da el profesor</returns>
+        protected override string ParticiparEnClase()
+        {
+            StringBuilder cadena = new StringBuilder();
+            cadena.AppendLine("CLASES DEL DIA: ");
+            foreach (Universidad.EClases aux in this.claseDeldia)
+            {
+                cadena.AppendLine($"{aux}");
+            }
+            return cadena.ToString();
+        }
+
+        /// <summary>
         /// Genera un StringBuilder con lo datos del profesor
         /// </summary>
         /// <returns>Cadena de caracteres con los datos del profesor</returns>
@@ -107,21 +124,6 @@ namespace ClasesInstanciables
             StringBuilder cadena = new StringBuilder();
             cadena.AppendLine(base.MostrarDatos());
             cadena.AppendLine(this.ParticiparEnClase());
-            return cadena.ToString();
-        }
-
-        /// <summary>
-        /// Genera un StringBuilder con las clases que da el profesor
-        /// </summary>
-        /// <returns>Cadena de caracteres con las clases que da el profesor</returns>
-        protected override string ParticiparEnClase()
-        {
-            StringBuilder cadena = new StringBuilder();
-            cadena.AppendLine("Clases del dia: ");
-            foreach (Universidad.EClases aux in this.claseDeldia)
-            {
-                cadena.AppendLine($"{aux}");
-            }
             return cadena.ToString();
         }
 

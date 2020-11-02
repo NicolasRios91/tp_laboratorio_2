@@ -11,6 +11,9 @@ using Excepciones;
 
 namespace EntidadesAbstractas
 {
+    /// <summary>
+    /// Clase abstracta para definir las clases del tipo Persona
+    /// </summary>
     public abstract class Persona
     {
         #region Atributos y Enumerados
@@ -23,6 +26,54 @@ namespace EntidadesAbstractas
         private int dni;
         private ENacionalidad nacionalidad;
         private string nombre;
+        #endregion
+
+        #region Constructores
+        /// <summary>
+        /// Constructor sin parametros
+        /// </summary>
+        public Persona()
+        {
+        }
+
+        /// <summary>
+        /// Instancia una Persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
+            Nacionalidad = nacionalidad;
+        }
+
+        /// <summary>
+        /// Instancia una Persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="dni">Dni de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad)
+            : this(nombre, apellido, nacionalidad)
+        {
+            Dni = dni;
+        }
+
+        /// <summary>
+        /// Instancia una Persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="dni">Dni de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
+            : this(nombre, apellido, nacionalidad)
+        {
+            StringToDni = dni;
+        }
         #endregion
 
         #region Propiedades
@@ -43,7 +94,7 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// Retorno o inicializa el valor del dni
+        /// Retorna o inicializa el valor del dni
         /// </summary>
         public int Dni
         {
@@ -57,7 +108,7 @@ namespace EntidadesAbstractas
             }
         }
         /// <summary>
-        /// Retorno o inicializa el valor de la nacionalidad
+        /// Retorna o inicializa el valor de la nacionalidad
         /// </summary>
         public ENacionalidad Nacionalidad
         {
@@ -87,7 +138,7 @@ namespace EntidadesAbstractas
         }
 
         /// <summary>
-        /// Iniciliza el valor del dni a partir de una cadena de caracteres
+        /// Iniciliza el valor del dni a partir de una cadena de caracteres validada
         /// </summary>
         public string StringToDni
         {
@@ -98,53 +149,7 @@ namespace EntidadesAbstractas
         }
         #endregion
 
-        #region Constructores
-        /// <summary>
-        /// Constructor sin parametros
-        /// </summary>
-        public Persona()
-        {
-        }
         
-        /// <summary>
-        /// Instancia una Persona
-        /// </summary>
-        /// <param name="nombre">Nombre de la persona</param>
-        /// <param name="apellido">Apellido de la persona</param>
-        /// <param name="nacionalidad">Nacionalidad de la persona</param>
-        public Persona(string nombre, string apellido,ENacionalidad nacionalidad)
-        {
-            Nombre = nombre;
-            Apellido = apellido;
-            Nacionalidad = nacionalidad;
-        }
-
-        /// <summary>
-        /// Instancia una Persona
-        /// </summary>
-        /// <param name="nombre">Nombre de la persona</param>
-        /// <param name="apellido">Apellido de la persona</param>
-        /// <param name="dni">Dni de la persona</param>
-        /// <param name="nacionalidad">Nacionalidad de la persona</param>
-        public Persona(string nombre, string apellido, int dni,ENacionalidad nacionalidad)
-            :this(nombre,apellido,nacionalidad)
-        {
-            Dni = dni;
-        }
-
-        /// <summary>
-        /// Instancia una Persona
-        /// </summary>
-        /// <param name="nombre">Nombre de la persona</param>
-        /// <param name="apellido">Apellido de la persona</param>
-        /// <param name="dni">Dni de la persona</param>
-        /// <param name="nacionalidad">Nacionalidad de la persona</param>
-        public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
-            :this(nombre,apellido,nacionalidad)
-        {
-            StringToDni = dni;
-        }
-        #endregion
 
         #region Metodos y Sobrecargas
         /// <summary>
@@ -154,8 +159,8 @@ namespace EntidadesAbstractas
         public override string ToString()
         {
             StringBuilder cadena = new StringBuilder();
-            cadena.AppendLine($"Nombre Completo: {Apellido}, {Nombre}");
-            cadena.AppendLine($"Nacionalidad: {Nacionalidad}");
+            cadena.AppendLine($"NOMBRE COMPLETO: {Apellido}, {Nombre}");
+            cadena.AppendLine($"NACIONALIDAD: {Nacionalidad}");
             return cadena.ToString();
         }
 

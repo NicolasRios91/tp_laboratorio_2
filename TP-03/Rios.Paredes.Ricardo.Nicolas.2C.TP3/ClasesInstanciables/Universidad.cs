@@ -10,10 +10,14 @@ using Excepciones;
 
 namespace ClasesInstanciables
 {
-
+    /// <summary>
+    /// Clase para declarar una Universidad y sus atributos
+    /// </summary>
     public class Universidad
     {
-
+        /// <summary>
+        /// Clases que se pueden dictar en la universidad
+        /// </summary>
         public enum EClases { Programacion, Laboratorio, Legislacion, SPD };
 
         #region Atributos
@@ -256,8 +260,8 @@ namespace ClasesInstanciables
             foreach (Jornada j in uni.Jornada)
             {
                 cadena.Append(j.ToString());
-                cadena.AppendLine("<---------------------------------------->");
-                //cadena.AppendLine("");
+                cadena.AppendLine("<------------------------------------------->");
+                cadena.AppendLine("");
             }
             return cadena.ToString();
         }

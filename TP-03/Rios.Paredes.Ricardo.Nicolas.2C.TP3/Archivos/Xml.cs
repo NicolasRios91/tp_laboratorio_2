@@ -17,7 +17,7 @@ namespace Archivos
         where T : new()
     {
         /// <summary>
-        /// Guarda el objeto en la archivo indicado
+        /// Guarda el objeto en el archivo indicado
         /// </summary>
         /// <param name="archivo">Ruta del archivo</param>
         /// <param name="datos">Objeto a guardar en el archivo</param>

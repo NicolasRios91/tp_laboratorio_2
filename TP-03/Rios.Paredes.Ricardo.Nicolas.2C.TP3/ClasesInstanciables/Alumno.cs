@@ -8,6 +8,9 @@ using EntidadesAbstractas;
 
 namespace ClasesInstanciables
 {
+    /// <summary>
+    /// Clase sellada para declarar alumnos universitarios
+    /// </summary>
     public sealed class Alumno : Universitario
     {
         #region Enumerados y Atributos
@@ -63,6 +66,15 @@ namespace ClasesInstanciables
         #region Metodos y Sobrecargas
 
         /// <summary>
+        /// Devuelve la clase que toma el alumno
+        /// </summary>
+        /// <returns>Cadena de caracteres con la clase que toma</returns>
+        protected override string ParticiparEnClase()
+        {
+            return $"TOMA CLASES DE: {this.claseQueToma}";
+        }
+
+        /// <summary>
         /// Genera un StringBuilder con los datos del alumno
         /// </summary>
         /// <returns>Cadena de caracteres con los datos</returns>
@@ -70,14 +82,14 @@ namespace ClasesInstanciables
         {
             StringBuilder cadena = new StringBuilder();
             cadena.AppendLine(base.MostrarDatos());
-            cadena.Append("Estado de cuenta: ");
+            cadena.AppendLine("");
             if (this.estadoCuenta == EEstadoCuenta.AlDia)
             {
-                cadena.AppendLine("Cuota al dia");
+                cadena.AppendLine("ESTADO DE CUENTA: Cuota al dia");
             }
             else
             {
-                cadena.AppendLine($"{this.estadoCuenta}");
+                cadena.AppendLine($"ESTADO DE CUENTA: {this.estadoCuenta}");
             }
             
             cadena.AppendLine(this.ParticiparEnClase());
@@ -120,14 +132,6 @@ namespace ClasesInstanciables
             return (a.claseQueToma != clase);
         }
 
-        /// <summary>
-        /// Devuelve la clase que toma el alumno
-        /// </summary>
-        /// <returns>Cadena de caracteres con la clase que toma</returns>
-        protected override string ParticiparEnClase()
-        {
-            return $"Toma clase de: {this.claseQueToma}";
-        }
         #endregion
     }
 }

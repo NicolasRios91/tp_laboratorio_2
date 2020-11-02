@@ -19,7 +19,7 @@ namespace Archivos
         /// </summary>
         /// <param name="archivo">ruta del archivo a leer</param>
         /// <param name="datos">variable donde se guardaran los datos</param>
-        /// <returns>true si pudo leer y guardar, de lo contrario una Excepcion del tipo ArchivosException</returns>
+        /// <returns>true si pudo leer y cargar los datos, de lo contrario una Excepcion del tipo ArchivosException</returns>
         public bool Leer(string archivo, out string datos)
         {
             StreamReader streamReader = null;

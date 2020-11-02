@@ -10,12 +10,65 @@ using System.Threading.Tasks;
 
 namespace ClasesInstanciables
 {
+    /// <summary>
+    /// Clase para declarar las jornadas, con su respectiva clase, profesor, y lista de alumnos
+    /// </summary>
     public class Jornada
     {
         #region Atributos
         private List<Alumno> alumnos;
         private Universidad.EClases clase;
         private Profesor instructor;
+        #endregion
+
+        #region PROPIEDADES
+
+        /// <summary>
+        /// Retorna o inicializa la lista de alumnos
+        /// </summary>
+        public List<Alumno> Alumnos
+        {
+            get
+            {
+                return this.alumnos;
+            }
+            set
+            {
+                this.alumnos = value;
+            }
+        }
+
+        /// <summary>
+        /// Retorna o inicializa la clase que se dictara en la jornada
+        /// </summary>
+        public Universidad.EClases Clase
+        {
+            get
+            {
+                return this.clase;
+
+            }
+            set
+            {
+                this.clase = value;
+            }
+        }
+
+        /// <summary>
+        /// Retorno a inicializa el profesor
+        /// </summary>
+        public Profesor Instructor
+        {
+            get
+            {
+                return this.instructor;
+            }
+            set
+            {
+                this.instructor = value;
+
+            }
+        }
         #endregion
 
         #region Constructores
@@ -42,57 +95,11 @@ namespace ClasesInstanciables
         #endregion
 
 
-        #region PROPIEDADES
 
-        /// <summary>
-        /// Retorno o inicializa la lista de alumnos
-        /// </summary>
-        public List<Alumno> Alumnos
-        {
-            get
-            {
-                return this.alumnos;
-            }
-            set
-            {
-                this.alumnos = value;
-            }
-        }
-
-        /// <summary>
-        /// Retorno o inicializa la clase
-        /// </summary>
-        public Universidad.EClases Clase
-        {
-            get
-            {
-                return this.clase;
-
-            }
-            set
-            {
-                this.clase = value;
-            }
-        }
-
-        /// <summary>
-        /// Retorno o inicializa el profesor
-        /// </summary>
-        public Profesor Instructor
-        {
-            get
-            {
-                return this.instructor;
-            }
-            set
-            {
-                this.instructor = value;
- 
-            }
-        }
-        #endregion
 
         #region Metodos y Sobrecargas
+
+
 
         /// <summary>
         /// Agrega un alumno a la jornada si no esta en la lista
@@ -146,12 +153,12 @@ namespace ClasesInstanciables
         public override string ToString()
         {
             StringBuilder cadena = new StringBuilder();
-            cadena.AppendLine($"Clase de: {this.Clase}");
-            cadena.Append($"Por {this.Instructor}");
-            cadena.AppendLine("Alumnos");
+            cadena.Append($"CLASE DE: {this.Clase}  ");
+            cadena.Append($"POR: {this.Instructor}");
+            cadena.AppendLine("ALUMNOS");
             foreach(Alumno a in this.Alumnos)
             {
-                cadena.AppendLine(a.ToString());
+                cadena.Append(a.ToString());
             }
             return cadena.ToString();
         }
@@ -193,6 +200,8 @@ namespace ClasesInstanciables
             }
             return true;
         }
+
+
         #endregion
     }
 }
