@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
+    /// <summary>
+    /// Excepcion para el caso donde no exista un profesor para una clase
+    /// </summary>
     public class SinProfesorException : Exception
     {
         public SinProfesorException()

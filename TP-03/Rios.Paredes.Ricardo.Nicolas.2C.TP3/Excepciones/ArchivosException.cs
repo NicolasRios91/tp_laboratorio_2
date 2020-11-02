@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
+    /// <summary>
+    /// Excepcion para el caso cuando no se puede leer o guardar un archivo
+    /// </summary>
     public class ArchivosException : Exception
     {
         public ArchivosException()

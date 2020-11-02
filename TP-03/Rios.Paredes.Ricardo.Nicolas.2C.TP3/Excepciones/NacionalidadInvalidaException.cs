@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
+    /// <summary>
+    /// Excepcion para el caso donde el dni y la nacionalidad no coincidan
+    /// </summary>
     public class NacionalidadInvalidaException : Exception
     {
         public NacionalidadInvalidaException()
-            :base("La nacionalidad no coincide")
+            :base("La nacionalidad es incorrecta")
         {
         }
         public NacionalidadInvalidaException(string message)

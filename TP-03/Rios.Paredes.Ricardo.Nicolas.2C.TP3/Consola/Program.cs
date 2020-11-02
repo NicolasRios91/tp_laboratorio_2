@@ -12,8 +12,9 @@ namespace Consola
     {
         static void Main(string[] args)
         {
+            
             Universidad uni = new Universidad();
-
+            
             Alumno a1 = new Alumno(1, "Juan", "Lopez", "12234456", EntidadesAbstractas.Persona.ENacionalidad.Argentino, Universidad.EClases.Programacion, Alumno.EEstadoCuenta.Becado);
             uni += a1;
             try
@@ -100,7 +101,8 @@ namespace Consola
             }
             try
             {
-                int jornada = 0; Jornada.Guardar(uni[jornada]);
+                int jornada = 0;
+                Jornada.Guardar(uni[jornada]);
                 Console.WriteLine("Archivo de Jornada {0} guardado.", jornada);
                 //Console.WriteLine(Jornada.Leer());
             } 
@@ -108,6 +110,7 @@ namespace Consola
             {
                 Console.WriteLine(e.Message);
             } 
+
             Console.ReadKey();
         }
     }

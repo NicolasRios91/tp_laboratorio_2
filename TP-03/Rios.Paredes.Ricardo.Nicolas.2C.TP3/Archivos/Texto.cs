@@ -8,9 +8,18 @@ using Excepciones;
 
 namespace Archivos
 {
+    /// <summary>
+    /// Clase con funciones de lectura y guardado de archivos de texto
+    /// </summary>
     public class Texto : IArchivo<string>
         
     {
+        /// <summary>
+        /// Lee el contenido del archivo indicado y lo guarda en la variable datos
+        /// </summary>
+        /// <param name="archivo">ruta del archivo a leer</param>
+        /// <param name="datos">variable donde se guardaran los datos</param>
+        /// <returns>true si pudo leer y guardar, de lo contrario una Excepcion del tipo ArchivosException</returns>
         public bool Leer(string archivo, out string datos)
         {
             StreamReader streamReader = null;
@@ -40,6 +49,13 @@ namespace Archivos
             }
             return true;
         }
+
+        /// <summary>
+        /// Guarda una cadena de caracteres en un archivo de texto
+        /// </summary>
+        /// <param name="archivo">Ruta donde se guardara el archivo</param>
+        /// <param name="datos">Texto a guardar</param>
+        /// <returns>True si pudo guardar, de lo contrario una Excepcion del tipo ArchivosException</returns>
         public bool Guardar(string archivo, string datos)
         {
             StreamWriter streamWriter = null;

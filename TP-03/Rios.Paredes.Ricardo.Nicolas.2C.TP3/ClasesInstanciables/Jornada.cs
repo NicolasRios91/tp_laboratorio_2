@@ -12,24 +12,41 @@ namespace ClasesInstanciables
 {
     public class Jornada
     {
+        #region Atributos
         private List<Alumno> alumnos;
         private Universidad.EClases clase;
         private Profesor instructor;
+        #endregion
 
+        #region Constructores
+
+        /// <summary>
+        /// Constructor privado que inicializa la lista de alumnos
+        /// </summary>
         private Jornada()
         {
-
             this.alumnos = new List<Alumno>();
         }
 
+        /// <summary>
+        /// Instancia la jornada
+        /// </summary>
+        /// <param name="clase">Clase que se va a dar</param>
+        /// <param name="instructor">Profesor de la jornada</param>
         public Jornada(Universidad.EClases clase, Profesor instructor)
             :this()
         {
             Clase = clase;
             Instructor = instructor;
         }
+        #endregion
 
-        //PROPIEDADES
+
+        #region PROPIEDADES
+
+        /// <summary>
+        /// Retorno o inicializa la lista de alumnos
+        /// </summary>
         public List<Alumno> Alumnos
         {
             get
@@ -42,6 +59,9 @@ namespace ClasesInstanciables
             }
         }
 
+        /// <summary>
+        /// Retorno o inicializa la clase
+        /// </summary>
         public Universidad.EClases Clase
         {
             get
@@ -54,6 +74,10 @@ namespace ClasesInstanciables
                 this.clase = value;
             }
         }
+
+        /// <summary>
+        /// Retorno o inicializa el profesor
+        /// </summary>
         public Profesor Instructor
         {
             get
@@ -66,7 +90,16 @@ namespace ClasesInstanciables
  
             }
         }
+        #endregion
 
+        #region Metodos y Sobrecargas
+
+        /// <summary>
+        /// Agrega un alumno a la jornada si no esta en la lista
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static Jornada operator +(Jornada j,Alumno a)
         {
             if (j!=a)
@@ -76,6 +109,12 @@ namespace ClasesInstanciables
             return j;
         }
 
+        /// <summary>
+        /// Evalua si una jornada es igual a un alumno
+        /// </summary>
+        /// <param name="j">Jornada a evaluar</param>
+        /// <param name="a">Alumno a evaluar</param>
+        /// <returns>True si coinciden las clases, de lo contrario false</returns>
         public static bool operator ==(Jornada j,Alumno a)
         {
             foreach(Alumno aux in j.Alumnos)
@@ -88,11 +127,22 @@ namespace ClasesInstanciables
             }
             return false;
         }
+
+        /// <summary>
+        /// Evalua si una jornada es distinta a un alumno
+        /// </summary>
+        /// <param name="j">Jornada a evaluar</param>
+        /// <param name="a">Alumno a evaluar</param>
+        /// <returns>True si las clases no coinciden, de lo contrario false</returns>
         public static bool operator !=(Jornada j,Alumno a)
         {
             return !(j == a);
         }
 
+        /// <summary>
+        /// Muestra los datos de la jornada
+        /// </summary>
+        /// <returns>Cadena de caracteres con todos los datos de la jornada</returns>
         public override string ToString()
         {
             StringBuilder cadena = new StringBuilder();
@@ -106,6 +156,10 @@ namespace ClasesInstanciables
             return cadena.ToString();
         }
 
+        /// <summary>
+        /// Lee el archivo de la jornada guardada
+        /// </summary>
+        /// <returns>Retorna el archivo en una cadena de caracteres</returns>
         public static string Leer()
         {
             try
@@ -121,6 +175,11 @@ namespace ClasesInstanciables
             }
         }
 
+        /// <summary>
+        /// Guarda los datos de la jornada en un archivo de texto
+        /// </summary>
+        /// <param name="jornada"></param>
+        /// <returns>True si pudo guardar, Excepcion del tipo ArchivosException si no pudo</returns>
         public static bool Guardar(Jornada jornada)
         {
             try
@@ -134,6 +193,6 @@ namespace ClasesInstanciables
             }
             return true;
         }
-
+        #endregion
     }
 }
