@@ -1,0 +1,44 @@
+Lista de Ventas
+
+Fecha: 23/11/2020 05:21:00
+Descripcion: God of War
+Cantidad: 2
+Precio Venta: 960
+
+Fecha: 23/11/2020 05:21:00
+Descripcion: Fifa 1990
+Cantidad: 2
+Precio Venta: 200
+
+Fecha: 23/11/2020 05:21:00
+Descripcion: Nintendo Switch
+Cantidad: 2
+Precio Venta: 25920
+
+Lista de Productos
+
+Descripcion: God of War
+Precio por unidad: 400
+Precio con IVA: 480
+Formato: Digital
+
+
+Descripcion: Fifa 1990
+Precio por unidad: 100
+Precio con IVA: 100
+Formato: Fisico
+
+
+Descripcion: Play station 4 500gb
+Precio por unidad: 10000
+Precio con IVA: 10000
+Color White
+
+
+Descripcion: Nintendo Switch
+Precio por unidad: 12000
+Precio con IVA: 14400
+Color Black
+
+
+

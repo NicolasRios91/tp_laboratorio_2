@@ -1,0 +1,55 @@
+Lista de Ventas
+
+Fecha: 23/11/2020 01:34:18
+Descripcion: God of War
+Cantidad: 2
+Precio Venta: 960
+
+Fecha: 23/11/2020 01:34:18
+Descripcion: God of War
+Cantidad: 2
+Precio Venta: 960
+
+Fecha: 23/11/2020 01:34:18
+Descripcion: Xbox One 4 500gb
+Cantidad: 2
+Precio Venta: 12597,12
+
+Fecha: 23/11/2020 01:34:18
+Descripcion: Play station 4 500gb
+Cantidad: 2
+Precio Venta: 15746,4
+
+Lista de Productos
+
+Descripcion: God of War
+Precio por unidad: 400
+Precio con IVA: 480
+Formato: Digital
+
+
+Descripcion: Fifa 1990
+Precio por unidad: 100
+Precio con IVA: 100
+Formato: Fisico
+
+
+Descripcion: Play station 4 500gb
+Precio por unidad: 10000
+Precio con IVA: 20736
+Color White
+
+
+Descripcion: Xbox One 4 500gb
+Precio por unidad: 8000
+Precio con IVA: 16588,8
+Color White
+
+
+Descripcion: Mario Bros
+Precio por unidad: 450
+Precio con IVA: 540
+Formato: Digital
+
+
+

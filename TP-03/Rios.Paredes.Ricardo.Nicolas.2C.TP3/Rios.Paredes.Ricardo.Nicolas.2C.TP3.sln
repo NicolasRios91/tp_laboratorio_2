@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntidadesAbstractas", "Entidades\EntidadesAbstractas.csproj", "{DC0A2526-B5B5-41B7-BC25-2E33667041ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClasesAbstractas", "Entidades\ClasesAbstractas.csproj", "{DC0A2526-B5B5-41B7-BC25-2E33667041ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClasesInstanciables", "ClasesInstanciables\ClasesInstanciables.csproj", "{EE6C7C49-F165-4E01-8A9E-21199071EF09}"
 EndProject
